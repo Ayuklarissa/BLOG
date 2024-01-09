@@ -1,0 +1,41 @@
+{% extends "base.html" %} 
+{% load static %}
+
+{% block title %} 
+My Blog 
+{% endblock %} 
+
+{% block css_files %}
+  <link rel="stylesheet" href="{% static "blog/post.css" %}" />
+  <link rel="stylesheet" href="{% static "blog/index.css" %}" />
+{% endblock %}
+
+{% block content %}
+<section id="welcome">
+  <header>
+    <img src="{% static "blog/images/larissa.jpg" %}" alt="Max - The Author Of This Blog" />
+    <h2>LARISSA'S BLOG</h2>
+  </header>
+  <p>Hallo, I am Larissa and I love to blog about technologies and fashion!</p>
+</section>
+<section id="latest-posts">
+  <h2>My Latest Thoughts</h2>
+
+  <ul>
+    {% for post in posts %}
+      {% include "blog/includes/post.html" %}
+    {% endfor %}
+  </ul>
+</section>
+
+<section id="about">
+  <h2>What I Do</h2>
+  <p>
+    I love programming, I love taking vaccations and I enjoy exploring new
+    technologies and places in general!
+  </p>
+  <p>
+    My goal is to keep on growing as a developer and to get a good job that pleases me!
+  </p>
+</section>
+{% endblock %}
